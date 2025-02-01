@@ -1,5 +1,19 @@
-<div>
-    <img [src]="imgPhoto" alt="">
-    <h3>{{title}}</h3>
-    <p>{{price}}</p>
+<div class="bg-white cursor-pointer shadow-md rounded-lg">
+  <figure class="w-full h-4/5 mb-2 relative">
+    <img
+      [src]="imgPhoto"
+      alt="{{ title }}"
+      class="w-full h-full object-cover rounded-lg bg-slate-100"
+    />
+    <button
+      (click)="addToCartHandler()"
+      class="absolute top-0 right-0 flex justify-center items-center h-10 w-10 rounded-full m-2 p-1 font-medium cursor-pointer bg-slate-100"
+    >
+    <i class="fa-solid fa-bag-shopping"></i>
+    </button>
+  </figure>
+  <div class="px-3 flex justify-between py-2">
+    <h3 class="text-sm font-light">{{ title }}</h3>
+    <p class="text-lg font-medium">${{ price }}</p>
+  </div>
 </div>

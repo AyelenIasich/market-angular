@@ -11,4 +11,9 @@ import { ProductComponent } from '../../components/product/product.component';
 
 export class ListComponent {
   imgPhoto = 'https://picsum.photos/250/250?r=' + Math.random();
+
+  mensaggeFromChild(event: string) {
+    console.log("estamos en el padre")
+    console.log(event)
+  }
 }
