@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal, SimpleChanges } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { OrderCardComponent } from '../order-card/order-card.component';
 import { totalPrice } from '../../../../utils/price-utils';
@@ -20,11 +20,11 @@ export class CheckoutSideMenuComponent {
     this.closeCart.emit();
   }
 
-  totalPrice: number = 0;
+  totalPrice = signal<number>(0);
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes['cart']){
-      this.totalPrice = totalPrice(this.cart);
+      this.totalPrice.set(totalPrice(this.cart));
     }
   }
 }
