@@ -15,7 +15,9 @@ import { CartService } from '../../../shared/services/cart.service';
 
 export class ListComponent {
   private cartService = inject(CartService);
-
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+   }
 
   products = signal<Product[]>([]);
 
@@ -70,7 +72,5 @@ export class ListComponent {
     this.products.set(initProducts);
   }
 
-  addToCart(product: Product) {
-   this.cartService.addToCart(product);
-  }
+
 }
