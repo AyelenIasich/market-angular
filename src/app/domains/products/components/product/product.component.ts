@@ -9,8 +9,7 @@ import { Product } from '../../../shared/models/product.model';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input({required:true}) product: Product = {id: '', title: '', price: 0, image: '', creationAt: ''};
-
+  @Input({required:true}) product: Product = {id: '', title: '', price: 0, images: [], creationAt: ''};
 
   @Output() addToCart = new EventEmitter();
 
