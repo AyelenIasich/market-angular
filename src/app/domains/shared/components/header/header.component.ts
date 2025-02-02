@@ -1,18 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { CheckoutSideMenuComponent } from '../checkout-side-menu/checkout-side-menu.component';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CheckoutSideMenuComponent, ],
+  imports: [CheckoutSideMenuComponent,],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
- hideSideMenu = signal(true);
+  @Input({required:true}) cart: Product[] = [];
 
- toogleSideMenu() {
-   this.hideSideMenu.update(prevState => !prevState);
- }
+  hideSideMenu = signal(true);
+
+  toogleSideMenu() {
+    this.hideSideMenu.update(prevState => !prevState);
+  }
 
 }

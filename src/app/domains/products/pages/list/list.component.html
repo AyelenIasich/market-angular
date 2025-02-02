@@ -1,5 +1,5 @@
 <div class="container mx-auto px-4">
-  <app-header />
+  <app-header [cart]="cart()" />
   <section class="w-full mx-auto my-10">
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full "
@@ -7,7 +7,7 @@
       <app-product
         *ngFor="let product of products()"
         [product]="product"
-        (addToCart)="mensaggeFromChild($event)"
+        (addToCart)="addToCart(product)"
       />
     </div>
   </section>

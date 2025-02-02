@@ -1,17 +1,21 @@
 <aside
   class="flex checkout-side-menu flex-col fixed z-10 right-0 bg-white border-slate-400 rounded-md shadow-xl"
-  [ngClass]="{ 'hidden': hideSideMenu, 'flex': !hideSideMenu }"
+  [ngClass]="{ hidden: hideSideMenu, flex: !hideSideMenu }"
 >
   <div class="flex justify-between items-center p-6">
     <h2 class="font-medium text-xl">My Cart</h2>
-    <i class="fa-solid fa-x size-6 text-slate-600 cursor-pointer" (click)="onCloseCart()"></i>
+    <i
+      class="fa-solid fa-x size-6 text-slate-600 cursor-pointer"
+      (click)="onCloseCart()"
+    ></i>
   </div>
   <div class="px-6">
+    <div *ngFor="let product of cart">
+      <app-order-card [product]="product"/>
+    </div>
     <p class="flex justify-between items-center">
       <span class="font-light">Total:</span>
-      <span class="font-medium text-2xl">
-        $1200
-      </span>
+      <span class="font-medium text-2xl"> ${{totalPrice}} </span>
     </p>
   </div>
 </aside>

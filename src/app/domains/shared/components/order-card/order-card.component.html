@@ -1,0 +1,12 @@
+<div class="relative flex justify-between items-center shadow-md mb-3">
+    <i class="fa-solid fa-x size-4 text-slate-200 cursor-pointer absolute top-2 right-2 hover:text-red-600 mb-3"></i>
+  <div class="flex items-center gap-2">
+    <figure class="w-20 h-20 bg-slate-300">
+      <img src="{{product.image}}" alt="{{product.title}}" class="w-full h-full rounded-lg object-cover" />
+    </figure>
+    <p class="text-sm font-light max-w-[8rem]">{{product.title}}</p>
+  </div>
+  <div class="flex items-center gap-2 pe-2">
+    <p class="text-lg font-medium">${{product.price}}</p>
+  </div>
+</div>
