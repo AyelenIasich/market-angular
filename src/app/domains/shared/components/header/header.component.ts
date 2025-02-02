@@ -1,6 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CheckoutSideMenuComponent } from '../checkout-side-menu/checkout-side-menu.component';
-import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +10,8 @@ import { Product } from '../../models/product.model';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @Input({required:true}) cart: Product[] = [];
-
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
   hideSideMenu = signal(true);
 
   toogleSideMenu() {

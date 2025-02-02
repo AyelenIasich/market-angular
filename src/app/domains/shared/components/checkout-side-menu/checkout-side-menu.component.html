@@ -10,7 +10,7 @@
     ></i>
   </div>
   <div class="px-6">
-    <div *ngFor="let product of cart">
+    <div *ngFor="let product of cart()">
       <app-order-card [product]="product"/>
     </div>
     <p class="flex justify-between items-center">
